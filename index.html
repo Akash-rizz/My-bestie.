@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080817">
+  <meta name="description" content="A tiny universe made for one incredible bestie.">
+  <title>Anaya's Universe ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="nebula nebula-one" aria-hidden="true"></div>
+  <div class="nebula nebula-two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Anaya's Universe home"><span class="brand-star">✧</span> ANAYA <span class="brand-dot">•</span> UNIVERSE</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav id="navigation" class="navigation" aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#story">Our Story</a><a href="#memories">Gallery</a><a href="#letter">Letter</a><a href="#quiz">Quiz</a><a href="#surprise">Surprise</a>
+      <button class="music-button" id="musicButton" aria-pressed="false" title="Toggle optional music">♫ <span id="musicLabel">Music off</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="pulse-dot"></span> A LITTLE PLACE IN THE COSMOS</p>
+        <h1>Welcome to<br><span class="gradient-text">Anaya's Universe</span></h1>
+        <p class="hero-subtitle">A tiny universe made for one incredible bestie.</p>
+        <p class="hero-note">Different souls, countless memories,<br>one unforgettable friendship.</p>
+        <a class="primary-button" href="#story">Enter our universe <span>↗</span></a>
+      </div>
+      <div class="hero-art reveal">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="planet planet-a"></div><div class="planet planet-b"></div>
+        <button class="friendship-orb" id="friendshipOrb" aria-label="Tap for a friendship sparkle">
+          <span class="orb-heart">♡</span><span class="orb-glint">✦</span>
+        </button>
+        <div class="orbit-caption caption-one">besties make life magical ♡</div>
+        <div class="orbit-caption caption-two">you + me + memories</div>
+      </div>
+      <div class="scroll-hint">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section class="section story-section" id="story">
+      <div class="section-heading reveal"><p class="eyebrow">CHAPTERS OF US</p><h2>A friendship <span class="gradient-text">of our own</span></h2><p>Not every memory needs a photograph to be unforgettable.</p></div>
+      <div class="story-grid" id="storyGrid"></div>
+      <p class="section-footnote">✨ Edit the sample stories in <code>script.js</code> to make this truly yours.</p>
+    </section>
+
+    <section class="section memory-section" id="memories">
+      <div class="section-heading reveal"><p class="eyebrow">LITTLE MOMENTS, BIG FEELINGS</p><h2>The memory <span class="gradient-text">vault</span></h2><p>A few placeholders waiting for your real bestie memories.</p></div>
+      <div class="memory-grid" id="memoryGrid"></div>
+      <label class="upload-button" for="photoUpload">＋ Add photos on this device</label>
+      <input id="photoUpload" type="file" accept="image/*" multiple hidden>
+      <p class="section-footnote">Photos you add stay in this browser session; they are not uploaded to a server.</p>
+    </section>
+
+    <section class="section letter-section" id="letter">
+      <div class="letter-intro reveal"><p class="eyebrow">SEALED WITH BESTIE ENERGY</p><h2>A little something…<br><span class="gradient-text">just for you.</span></h2><p>Some things deserve their own little moment.</p>
+        <button class="primary-button" id="openLetter">Open the letter <span>♡</span></button>
+      </div>
+      <div class="envelope-wrap reveal">
+        <button class="envelope" id="envelope" aria-label="Open the friendship letter" aria-expanded="false"><span class="envelope-flap"></span><span class="envelope-seal">♡</span><span class="envelope-label">For Anaya</span></button>
+        <article class="letter-paper" id="letterPaper" aria-hidden="true">
+          <button class="close-letter" id="closeLetter" aria-label="Close letter">×</button>
+          <p class="letter-kicker">A NOTE FOR MY BESTIE</p><h3>Hey Anaya! 💗</h3>
+          <div id="letterText"></div>
+          <p class="letter-signoff">Stay awesome, bestu! <span>✨🤝</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section quiz-section" id="quiz">
+      <div class="section-heading reveal"><p class="eyebrow">BESTIE KNOWLEDGE CHECK</p><h2>The friendship <span class="gradient-text">quiz</span></h2><p>No pressure. Just vibes, giggles, and very serious unseriousness.</p></div>
+      <div class="quiz-panel reveal" id="quizPanel">
+        <div class="quiz-progress"><span id="quizProgressText">QUESTION 1 / 5</span><span id="quizProgressPct">20%</span></div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+        <h3 id="quizQuestion">Loading a bestie question…</h3>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-controls"><button class="secondary-button" id="quizRestart">Start over</button><button class="primary-button" id="quizNext" disabled>Next question →</button></div>
+        <div class="quiz-result" id="quizResult" hidden></div>
+      </div>
+    </section>
+
+    <section class="section surprise-section" id="surprise">
+      <div class="surprise-visual reveal"><div class="gift-glow"></div><div class="gift-box" aria-hidden="true"><span class="gift-ribbon"></span><span class="gift-bow">∞</span></div></div>
+      <div class="surprise-copy reveal"><p class="eyebrow">A RANDOM LITTLE REMINDER</p><h2>Bestie <span class="gradient-text">surprise</span></h2><p>Because you deserve a little unexpected happiness. Always.</p>
+        <button class="primary-button" id="surpriseButton">Give me a bestie surprise 🎁</button>
+        <div class="surprise-message" id="surpriseMessage" aria-live="polite">Your next tiny dose of bestie magic is waiting…</div>
+        <div class="surprise-actions"><button class="secondary-button" id="copyMessage">Copy message</button><button class="text-button" id="anotherSurprise">Another one ↻</button></div>
+      </div>
+    </section>
+
+    <section class="section secret-section">
+      <div class="section-heading reveal"><p class="eyebrow">PSST… OVER HERE</p><h2>Hidden little <span class="gradient-text">secrets</span></h2><p>The universe rewards curious besties.</p></div>
+      <div class="secret-grid">
+        <button class="secret-card reveal" id="secretStar"><span class="secret-icon">✧</span><strong>Star tap secret</strong><span>Tap this star 3 times.</span><small id="starCount">0 / 3</small></button>
+        <button class="secret-card reveal" id="secretOrb"><span class="secret-icon">☼</span><strong>Cosmic sparkle</strong><span>Tap the orb in the hero 5 times.</span><small id="orbCount">0 / 5</small></button>
+        <div class="secret-card reveal"><span class="secret-icon">♕</span><strong>Quiz champion</strong><span>Finish the quiz to unlock a message.</span><small id="quizSecretStatus">Locked</small></div>
+      </div>
+      <p class="secret-unlock" id="secretUnlock" hidden></p>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand" href="#home"><span class="brand-star">✧</span> ANAYA <span class="brand-dot">•</span> UNIVERSE</a><p>Made with friendship, for Anaya ✨</p><span>Different souls, countless memories, one unforgettable friendship. ♡</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
